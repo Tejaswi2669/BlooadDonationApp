@@ -3,7 +3,7 @@ package com.BloodDonationApp.BloodDonation.Entity;
 import jakarta.persistence.*;
 
 import java.util.Set;
-
+@Table(name = "users")
 @Entity
 public class User {
     @Id
