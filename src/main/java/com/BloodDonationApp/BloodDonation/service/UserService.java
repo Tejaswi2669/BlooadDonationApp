@@ -6,6 +6,8 @@ import com.BloodDonationApp.BloodDonation.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -18,5 +20,11 @@ public class UserService {
 
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public List<User> getAllDonors() {
+        return userRepository.findAll().stream()
+                .filter(user -> "DONOR".equals(user.getRole()))
+                .toList();
     }
 }
